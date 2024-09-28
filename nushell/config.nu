@@ -9,6 +9,19 @@
 
 use ~/.cache/starship/init.nu
 
+
+# Add this to your Nushell config file (typically ~/.config/nushell/config.nu)
+
+let python_scripts_path = "C:/Users/zfral/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0/LocalCache/local-packages/Python311/Scripts"
+
+$env.PATH = ($env.PATH | split row (char esep) | append $python_scripts_path | uniq)
+
+def win-cfg [] {
+    cd ~/AppData/Local
+}
+
+alias win-cfg = cd ~/AppData/Local
+
 let dark_theme = {
     # color for nushell primitives
     separator: white

@@ -1,0 +1,135 @@
+ls
+nvim .
+ls
+neofetch
+nvim .
+ls
+exit
+winget install helix
+winget install Helix.Helix
+refreshenv
+hx
+cd D
+cd D:
+cd A
+cd A:
+cd A:/
+ls
+dev
+cd A:/
+ls
+cd falconr-api\
+hx .
+cd A
+cd A:
+cd A:\
+ls
+cd falconr-api\
+hx .
+ls
+hx --health
+winget install gopls
+go install golang.org/x/tools/gopls@latest
+hx --health
+npm i --global typescript-language-server
+npm
+winget install node
+winget install nodejs
+node
+cd A:\
+ls
+npm i --global typescript-language-server
+cd falconr-api\
+ls
+hx --health
+npm i --global prettier
+hx --health
+hx .
+ls 
+cd 
+ls
+cd .config
+ls
+cd ..
+cd AppData\
+ls
+cd local
+ls
+cd helix
+ls
+helix config.toml
+hx config.toml
+ls
+hx .
+npm install pyright -g
+pip
+pip install ruff
+pip install black
+hx $nu.config-path
+black
+ls
+hx $nu.config-path
+source $env.USERPROFILE\AppData\Roaming\nushell\config.nu
+source
+source $nu.config-path
+win-cfg
+hx $nu.config-path
+source $nu.config-path
+win-cfg
+ls
+hx $nu.config-path
+source $nu.config-path
+hd
+hx $nu.config-path
+source $nu.config-path
+win-cfg
+ls
+cd helix
+ls
+touch languages.toml
+ls
+hx languages.toml
+hx --health
+cd A:/
+ls
+gh repo clone zfralish/mew_mate_api
+ls
+pipx 
+choco install pipx
+winget install pipx
+scoop
+scoop install pipx
+pipx install poetry
+pipx ensurepath
+poetry
+source $nu.config-path
+poetry
+cd A:/
+ls
+cd mew_mate_api\
+ls
+cd ..
+ls
+gh repo clone zfralish/mm_api
+cd mm_api\
+poetry install
+hx .
+win-cfg
+ls
+cd helix
+ls
+cp languages.toml ../../Roaming/helix
+cd ../../Roaming/helix/
+ls
+cd A:/mm_api/
+hx .
+hx ~/AppData/Roaming/helix/languages.toml
+hx .
+ls
+cd
+ls
+ln
+cp AppData\Roaming\helix .dotfiles\
+cp --recursive AppData\Roaming\helix .dotfiles\
+cd .dotfiles
+ls
