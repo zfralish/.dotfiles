@@ -237,3 +237,13 @@ go run api
 go run falconr/cmd/falconr api
 hx .
 dots
+git add .
+git commit -m "syncing changes"
+git push
+dots
+ls
+cd nushell
+ls
+git add config.nu
+git add env.nu
+git commit -m "adding config changes"
