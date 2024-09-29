@@ -133,3 +133,107 @@ cp AppData\Roaming\helix .dotfiles\
 cp --recursive AppData\Roaming\helix .dotfiles\
 cd .dotfiles
 ls
+git add .
+git commit -m "adding helix"
+git push
+rm -rf ~/AppData/Roaming/helix
+dev
+ls
+hx $nu.config-path
+source $nu.config-path
+falc-api 
+go test ./..
+ls
+go install
+go get
+ls
+go test test
+go mod download
+go get
+go get .
+go get -d ./..
+go get -d ./
+hx Dockerfile
+go build
+go mod tidy
+go test test
+go test ./
+go test ./test
+touch .env
+hx .env
+go test ./test
+docker
+docker-compose up db -d
+poetry shell
+falc-api 
+docker-compose up db -d
+docker ls
+docker ps
+go test ./test
+hx $nu.config-path
+source $nu.config-path
+hx $nu.config-path
+source $nu.config-path
+hx $nu.config-path
+source $nu.config-path
+dots
+hx .
+falc-api 
+ls
+falc-api 
+ls
+dev
+ls
+mm-csr
+mkdir mm-csr
+ls
+cd mm-csr
+cd ..
+ls
+rm -rf mm-csr
+gh repo clone zfralish/mm-csr
+cd mm-csr\
+ls
+yarn 
+ls
+npm run dev
+hx .
+dots
+hx .
+dve
+dev
+cd mm-csr\
+ls
+hx .
+dev
+hx .
+dots
+ls
+hx .
+dev
+ls
+cd mm-csr\
+hx .
+hx --health
+dots
+hx helix
+dev
+cd mm-csr\
+hx .
+npm install -g emmet-ls
+dots
+hx .
+dev
+cd mm-csr\
+ls
+hx .
+ls
+cd cmd
+ls
+cd ..
+go run cmd\falconr
+go run falconr/cmd/falconr
+go run api
+go run falconr/cmd/falconr api
+hx .
+dots

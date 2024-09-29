@@ -9,3 +9,57 @@ typeCheckingMode = "basic"
 [language-server.ruff]
 command = "ruff"
 args = ["server"]
+
+
+[language-server.emmet-ls]
+args = ["--stdio"]
+command="emmet-ls"
+
+[[language]]
+name = "html"
+formatter = { command = 'npx', args = ["prettier", "--parser", "html"] }
+language-servers = ["vscode-html-language-server", "emmet-ls", "tailwindcss-ls"]
+
+[[language]]
+name = "css"
+formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
+language-servers = [ "vscode-css-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "scss"
+formatter = { command = 'npx', args = ["prettier", "--parser", "scss"] }
+
+[[language]]
+name = "javascript"
+language-servers = [{except-features = ["format"], name = "typescript-language-server"}, "biome"]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+language-servers = [{except-features = ["format"], name = "typescript-language-server"}, "biome"]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [{except-features = ["format"], name = "typescript-language-server"}, "emmet-ls", "tailwindcss-ls", "biome"]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [{except-features = ["format"], name = "typescript-language-server"}, "emmet-ls", "tailwindcss-ls", "biome"]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "json"
+language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
+# formatter = { command = 'npx', args = ["prettier", "--parser", "json"] }
+
+[[language]]
+name = "markdown"
+formatter = { command = 'npx', args = ["prettier", "--parser", "markdown"] }
+soft-wrap.enable = true
+soft-wrap.wrap-at-text-width = true

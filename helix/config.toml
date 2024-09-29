@@ -1,5 +1,5 @@
 
-theme = "nords"
+theme = "nord"
 
 [editor]
 line-number = "relative"
