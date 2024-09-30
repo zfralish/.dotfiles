@@ -9,7 +9,7 @@ config = {
 	window_decorations = "RESIZE",
 	force_reverse_video_cursor = true,
 	font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
-	default_prog = { "/bin/zsh", "-l" },
+	default_prog = { "/opt/homebrew/bin/nu", "-l" },
 	font_size = 14.0,
 	color_scheme = "nord",
 	inactive_pane_hsb = {

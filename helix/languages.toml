@@ -1,15 +1,13 @@
 [[language]]
 name = "python"
-language-servers = [ "pyright", "ruff" ]
+language-servers = [ "basedpyright" ]
 
-[language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
-
-# if you choose `ruff` itself
-[language-server.ruff]
-command = "ruff"
-args = ["server"]
-
+[language.formatter]
+command = "black"
+args = [
+"-", # stdin
+"--quiet"
+]
 
 [language-server.emmet-ls]
 args = ["--stdio"]

@@ -8,7 +8,7 @@
 # https://github.com/nushell/nu_scripts/tree/main/themes
 
 use ~/.cache/starship/init.nu
-
+use ~/.dotfiles/nushell/scripts/conda.nu
 
 # Add this to your Nushell config file (typically ~/.config/nushell/config.nu)
 
@@ -24,6 +24,62 @@ alias mm-ui = cd A:\mew-mate-ui\
 alias dots = cd ~/.dotfiles
 
 alias win-cfg = cd ~/AppData/Local
+
+# Aliases
+alias ll = ls -la
+
+# Git aliases
+alias gs = git status
+alias gc = git commit -m
+alias gp = git push
+alias gpl = git pull
+alias gco = git checkout
+
+# Directory and editor aliases
+alias bbcd = cd ~/dev/bigbend-platform
+alias bbz = hx ~/dev/bigbend-platform
+alias aucd = cd ~/dev/auth-ui
+alias auz = hx ~/dev/auth-ui
+alias incd = cd ~/dev/infra
+alias inz = hx ~/dev/infra
+alias aacd = cd ~/dev/bigbend-platform/apps/auth
+alias aaz = hx ~/dev/bigbend-platform/apps/auth
+alias ezsh = hx ~/.zshrc -n
+alias ehx = hx ~/.dotfiles/helix/
+alias ewez = hx ~/.dotfiles/wezterm/
+alias wst = wezterm cli set-tab-title
+
+# Functions
+def edit-auth-api [] {
+    aacd
+    aaz
+    wst "auth"
+}
+
+def edit-auth-ui [] {
+    aucd
+    auz
+    wst "auth-ui"
+}
+
+def edit-bb [] {
+    bbcd
+    bbz
+    wst "bigbend-platform"
+}
+
+def gcp [commit_message: string] {
+    git add .
+    git commit -m $commit_message
+    git push
+}
+
+def gcmb [issue_number: string, branch_name: string] {
+    git checkout main
+    git pull
+    git checkout -b $"CASH-($issue_number)/($branch_name)"
+    git push --set-upstream origin $"CASH-($issue_number)/($branch_name)"
+}
 
 let dark_theme = {
     # color for nushell primitives
