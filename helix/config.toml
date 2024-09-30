@@ -2,6 +2,7 @@
 theme = "nord"
 
 [editor]
+true-color = true
 line-number = "relative"
 mouse = false
 
@@ -9,3 +10,6 @@ mouse = false
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[editor.file-picker]
+hidden = false

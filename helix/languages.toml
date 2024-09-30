@@ -38,7 +38,7 @@ auto-format = true
 [[language]]
 name = "typescript"
 language-servers = [{except-features = ["format"], name = "typescript-language-server"}, "biome"]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]
@@ -50,7 +50,7 @@ auto-format = true
 [[language]]
 name = "tsx"
 language-servers = [{except-features = ["format"], name = "typescript-language-server"}, "emmet-ls", "tailwindcss-ls", "biome"]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'prettier', args = ["--parser", "typescript"] }
 auto-format = true
 
 [[language]]

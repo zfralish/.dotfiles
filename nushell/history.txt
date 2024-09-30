@@ -247,3 +247,230 @@ ls
 git add config.nu
 git add env.nu
 git commit -m "adding config changes"
+exit
+ls
+gh
+hx
+cd ~/.dotfiles
+ls
+cd .config
+ls
+cd helix
+cd ..
+rm -rf helix
+ls
+ln -s ~/.dotfiles/helix ~/.config/helix
+ls
+hx .
+wget
+cd ..
+wget https://go.dev/dl/go1.23.1.linux-386.tar.gz
+hx $nu.config-path
+go
+source $nu.config-path
+go
+go version
+ls
+rm -rf go1.23.1.linux-amd64.tar.gz
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+nvm 
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+hx /home/zfralish/.profile
+nvm
+exit
+brew
+cd
+ls
+brew
+hx $nu.config-path
+source $nu.config-path
+brew
+ls
+brew install nodejs
+node
+brew
+go
+node
+npm install -g yarn
+ls
+gh repo clone zfralish/mm-csr
+gh repo clone zfralish/falconr-api
+cd falconr-api/
+go mod tidy
+go test ./test
+docker ps
+docker
+docker ps
+cd falconr-api/
+docker-compose up db -d
+go test ./test
+hx .
+touch .env
+hx .
+ls
+ls -a
+dots
+hx .
+cd ~/falconr-api/
+ls
+hx .env
+go test ./test
+ls
+cd ~/falconr-api/
+ls
+hx .
+ls
+cd ~/falconr-api/
+ls
+winget update nushell
+ls
+cd ~/falconr-api/
+ls
+go run falconr/cmd/falconr api
+docker ps
+cd mm-csr\
+cd ..
+cd mm-csr\
+lls
+ls
+cd mm-csr\
+cd mm-csr
+ls
+yarn
+npm run dev
+ls
+cd ..
+ls
+rm -rf mm-csr
+ls
+mkdir mm-csr
+cd ..
+ls
+cd zfralish
+ls
+rm -rf mm-csr
+mkdir mm-ui
+ls
+cd mm-ui
+yarn create vite
+rm -rf mm-ui
+cd ..
+rm -rf mm-ui
+yarn create vite
+cd mm-ui
+yarn
+yarn dev
+yarn add @mantine/core @mantine/hooks @mantine/form @mantine/dates dayjs @mantine/charts recharts@2
+yarn install -D @tanstack/router-plugin @tanstack/router-devtools
+yarn add -D @tanstack/router-plugin @tanstack/router-devtools
+ls
+hx vite.config.ts
+hx --health
+npm install -g prettier
+hx vite.config.ts
+ls
+cd ..
+ls
+rm -rf mm-ui
+ls
+gh repo clone zfralish/mm-ui
+ls
+cd mm-ui
+ls
+yarn i
+yarn
+ls
+yarn run dev
+python
+brew install python
+brew reinstall python@3.12
+python
+ls
+yarn add -D @tanstack/router-plugin @tanstack/router-devtools
+hx vite.config.ts
+hx .
+hx --health
+prettier 
+dots
+ls
+hx .
+cd ..
+cd mm-ui
+ls
+hx
+cd mm-ui
+hx .
+ls
+prettier 
+hx --health
+ls
+hx .
+dots 
+hx .
+cd ../mm-ui/
+ls
+hx .
+brew install yazi
+yazi
+cd ..
+rm -rf mm-ui
+gh repo list
+gh repo clone zfralish/mew-mate-ui
+cd mew-mate-ui/
+ls
+yarn
+yarn run dev
+lf
+docker ps
+cd ../falconr-api/
+ls
+go run falconr/cmd/falconr api
+hx .
+ls
+ls -a
+hx .env
+hx .
+go run falconr/cmd/falconr api
+hx .
+go install golang.org/x/tools/gopls@latest
+hx --health
+cd ..
+ls
+go install golang.org/x/tools/gopls@latest
+gopls
+which go
+gopls
+hx go --health
+brew install gopls
+gopls
+ls
+cd falconr-api/
+ls
+hx --health go
+hx .
+dots
+hx 
+hx .
+ls
+cd ~/.config
+ls
+cd helix
+ls
+hx .
+cd ../..
+ls
+cd falconr-api/
+ls
+hx .
+go run falconr/cmd/falconr api
+hx .
+go run falconr/cmd/falconr api
+go test ./test
+git add .
+git commit -m "adding config changes"
+git config --global user.name "Zeke Fralish"
+git commit -m "adding config changes"
+git push
+gh repo
+ls
+dots
