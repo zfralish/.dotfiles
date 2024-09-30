@@ -9,6 +9,7 @@
 
 use ~/.cache/starship/init.nu
 use ~/.dotfiles/nushell/scripts/conda.nu
+$env.CONDA_NO_PROMPT = true
 
 # Add this to your Nushell config file (typically ~/.config/nushell/config.nu)
 
@@ -16,7 +17,8 @@ use ~/.dotfiles/nushell/scripts/conda.nu
 $env.PATH = ($env.PATH | split row (char esep) | append [
     "/usr/local/go/bin",
     "/home/linuxbrew/.linuxbrew/bin",
-    "/opt/homebrew/bin"
+    "/opt/homebrew/bin",
+   "/Users/zfralish/.local/bin" 
 ] | uniq)
 
 alias dev = cd A:\
