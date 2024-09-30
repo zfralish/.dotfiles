@@ -15,7 +15,8 @@ use ~/.dotfiles/nushell/scripts/conda.nu
 
 $env.PATH = ($env.PATH | split row (char esep) | append [
     "/usr/local/go/bin",
-    "/home/linuxbrew/.linuxbrew/bin"
+    "/home/linuxbrew/.linuxbrew/bin",
+    "/opt/homebrew/bin"
 ] | uniq)
 
 alias dev = cd A:\
