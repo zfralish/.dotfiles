@@ -10,7 +10,14 @@
 use ~/.cache/starship/init.nu
 use ~/.dotfiles/nushell/scripts/conda.nu
 $env.CONDA_NO_PROMPT = true
+# Set the default editor to Helix
+$env.EDITOR = 'hx'
 
+# You might also want to set VISUAL to the same value
+$env.VISUAL = 'hx'
+
+# If you want to use Helix for Git commit messages
+$env.GIT_EDITOR = 'hx'
 # Add this to your Nushell config file (typically ~/.config/nushell/config.nu)
 
 
