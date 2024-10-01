@@ -2,6 +2,24 @@ local wezterm = require("wezterm")
 local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
 local Keys = {}
 -- you can put the rest of your Wezterm config here
+
+local function get_default_program()
+    if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+        -- Windows-specific program (starting WSL)
+			return { "wsl.exe", "--distribution", "Ubuntu-24.04", "--cd", "~" }
+    else
+    	return {"/opt/homebrew/bin/nu"}
+    end
+end
+local function get_default_font()	
+    if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+        -- Windows-specific program (starting WSL)
+			return 11.0
+    else
+    	return 14.0
+    end
+end
+
 config = {
 	automatically_reload_config = true,
 	enable_tab_bar = true,
@@ -9,8 +27,8 @@ config = {
 	window_decorations = "RESIZE",
 	force_reverse_video_cursor = true,
 	font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
-	default_prog = { "/opt/homebrew/bin/nu", "-l" },
-	font_size = 14.0,
+	default_prog = get_default_program(),
+	font_size = get_default_font(),
 	color_scheme = "nord",
 	inactive_pane_hsb = {
 		saturation = 1,
