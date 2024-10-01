@@ -1,18 +1,35 @@
-# in languages.toml
 [[language]]
 name = "python"
-language-servers = ["pyright", "ruff"]
-[language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
-[language-server.ruff]
-command = "ruff"
-args = ["server"]
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py","pyi","py3","pyw",".pythonstartup",".pythonrc"]
+shebangs = ["python"]
+roots = ["pyrightconfig.json"]
+comment-token = "#"
+language-servers = ["basedpyright", "ruff"]
+indent = { tab-width = 4, unit = "    " }
+auto-format = true
+
 [language.formatter]
 command = "black"
 args = [
-"-", # stdin
-"--quiet"
+  "-",
+  "--quiet",
+  "--line-length=88"
 ]
+
+[language-server.basedpyright]
+args = ["--stdio","--verbose"]
+command = "basedpyright-langserver"
+
+[language-server.basedpyright.analysis]
+stubPath = "/apps/auth"
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+[language-server.ruff.config]
+settings = {args = []}
 
 [language-server.emmet-ls]
 args = ["--stdio"]

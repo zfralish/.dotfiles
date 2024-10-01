@@ -974,3 +974,5 @@ $env.config = {
         }
     ]
 }
+
+neofetch
