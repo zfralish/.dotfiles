@@ -72,6 +72,11 @@ def edit-auth-ui [] {
     wst "auth-ui"
 }
 
+def gcm [] {
+    git checkout main
+    git pull
+}
+
 def edit-bb [] {
     bbcd
     bbz
