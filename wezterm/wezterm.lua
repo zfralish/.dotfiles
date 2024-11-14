@@ -18,10 +18,25 @@ local function get_default_font()
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         -- Windows-specific program (starting WSL)
 			return 11.0
+	elseif wezterm.target_triple:find("linux") then
+		return 10.0
     else
     	return 14.0
     end
 end
+local nord = {
+    nord0 = '#2E3440',  -- Dark gray (background)
+    nord1 = '#3B4252',  -- Darker gray
+    nord2 = '#434C5E',  -- Dark grayish blue
+    nord3 = '#4C566A',  -- Gray blue
+    nord4 = '#D8DEE9',  -- Light gray
+    nord5 = '#E5E9F0',  -- Lighter gray
+    nord6 = '#ECEFF4',  -- Almost white
+    nord7 = '#8FBCBB',  -- Cyan
+    nord8 = '#88C0D0',  -- Light blue
+    nord9 = '#81A1C1',  -- Blue
+    nord10 = '#5E81AC', -- Dark blue
+}
 
 config = {
 	automatically_reload_config = true,
@@ -33,10 +48,42 @@ config = {
 	default_prog = get_default_program(),
 	font_size = get_default_font(),
 	color_scheme = "nord",
+	use_fancy_tab_bar=false,
 	inactive_pane_hsb = {
 		saturation = 1,
 		brightness = 1,
 	},
+	colors = {
+	    tab_bar = {
+	        background = nord.nord0,
+
+	        active_tab = {
+	            bg_color = nord.nord8,
+	            fg_color = nord.nord0,
+	            intensity = 'Normal',
+	        },
+
+	        inactive_tab = {
+	            bg_color = nord.nord2,
+	            fg_color = nord.nord4,
+	        },
+
+	        inactive_tab_hover = {
+	            bg_color = nord.nord3,
+	            fg_color = nord.nord6,
+	        },
+
+	        new_tab = {
+	            bg_color = nord.nord1,
+	            fg_color = nord.nord4,
+	        },
+
+	        new_tab_hover = {
+	            bg_color = nord.nord3,
+	            fg_color = nord.nord6,
+	        },
+	    },
+	}
 }
 function Keys.setup(config)
 	smart_splits.apply_to_config(config, {

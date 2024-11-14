@@ -34,6 +34,14 @@ def create_right_prompt [] {
     ([$last_exit_code, (char space), $time_segment] | str join)
 }
 
+$env.PATH = ($env.PATH | split row (char esep) | append [
+    "/usr/local/go/bin",
+    "/home/linuxbrew/.linuxbrew/bin",
+    "/opt/homebrew/bin",
+    "/Users/zfralish/.local/bin",
+   "/usr/bin" 
+] | uniq)
+
 # Use nushell functions to define your right and left prompt
 $env.PROMPT_COMMAND = {|| create_left_prompt }
 # FIXME: This default is not implemented in rust code as of 2023-09-08.
