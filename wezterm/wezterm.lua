@@ -7,6 +7,9 @@ local function get_default_program()
     if wezterm.target_triple == "x86_64-pc-windows-msvc" then
         -- Windows-specific program (starting WSL)
 			return { "wsl.exe", "--distribution", "Ubuntu-24.04", "--cd", "~" }
+	elseif wezterm.target_triple:find("linux") then
+        -- Linux-specific program
+        return { "/home/linuxbrew/.linuxbrew/bin/nu" }
     else
     	return {"/opt/homebrew/bin/nu"}
     end
