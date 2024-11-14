@@ -4,38 +4,38 @@ local Keys = {}
 -- you can put the rest of your Wezterm config here
 
 local function get_default_program()
-    if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-        -- Windows-specific program (starting WSL)
-			return { "wsl.exe", "--distribution", "Ubuntu-24.04", "--cd", "~" }
+	if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+		-- Windows-specific program (starting WSL)
+		return { "wsl.exe", "--distribution", "Ubuntu-24.04", "--cd", "~" }
 	elseif wezterm.target_triple:find("linux") then
-        -- Linux-specific program
-        return { "/home/linuxbrew/.linuxbrew/bin/nu" }
-    else
-    	return {"/opt/homebrew/bin/nu"}
-    end
+		-- Linux-specific program
+		return { "/home/linuxbrew/.linuxbrew/bin/nu" }
+	else
+		return { "/opt/homebrew/bin/nu" }
+	end
 end
-local function get_default_font()	
-    if wezterm.target_triple == "x86_64-pc-windows-msvc" then
-        -- Windows-specific program (starting WSL)
-			return 11.0
+local function get_default_font()
+	if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+		-- Windows-specific program (starting WSL)
+		return 11.0
 	elseif wezterm.target_triple:find("linux") then
 		return 10.0
-    else
-    	return 14.0
-    end
+	else
+		return 14.0
+	end
 end
 local nord = {
-    nord0 = '#2E3440',  -- Dark gray (background)
-    nord1 = '#3B4252',  -- Darker gray
-    nord2 = '#434C5E',  -- Dark grayish blue
-    nord3 = '#4C566A',  -- Gray blue
-    nord4 = '#D8DEE9',  -- Light gray
-    nord5 = '#E5E9F0',  -- Lighter gray
-    nord6 = '#ECEFF4',  -- Almost white
-    nord7 = '#8FBCBB',  -- Cyan
-    nord8 = '#88C0D0',  -- Light blue
-    nord9 = '#81A1C1',  -- Blue
-    nord10 = '#5E81AC', -- Dark blue
+	nord0 = '#2E3440',    -- Dark gray (background)
+	nord1 = '#3B4252',    -- Darker gray
+	nord2 = '#434C5E',    -- Dark grayish blue
+	nord3 = '#4C566A',    -- Gray blue
+	nord4 = '#D8DEE9',    -- Light gray
+	nord5 = '#E5E9F0',    -- Lighter gray
+	nord6 = '#ECEFF4',    -- Almost white
+	nord7 = '#8FBCBB',    -- Cyan
+	nord8 = '#88C0D0',    -- Light blue
+	nord9 = '#81A1C1',    -- Blue
+	nord10 = '#5E81AC',   -- Dark blue
 }
 
 config = {
@@ -48,41 +48,41 @@ config = {
 	default_prog = get_default_program(),
 	font_size = get_default_font(),
 	color_scheme = "nord",
-	use_fancy_tab_bar=false,
+	use_fancy_tab_bar = false,
 	inactive_pane_hsb = {
 		saturation = 1,
 		brightness = 1,
 	},
 	colors = {
-	    tab_bar = {
-	        background = nord.nord0,
+		tab_bar = {
+			background = nord.nord0,
 
-	        active_tab = {
-	            bg_color = nord.nord8,
-	            fg_color = nord.nord0,
-	            intensity = 'Normal',
-	        },
+			active_tab = {
+				bg_color = nord.nord8,
+				fg_color = nord.nord0,
+				intensity = 'Normal',
+			},
 
-	        inactive_tab = {
-	            bg_color = nord.nord2,
-	            fg_color = nord.nord4,
-	        },
+			inactive_tab = {
+				bg_color = nord.nord2,
+				fg_color = nord.nord4,
+			},
 
-	        inactive_tab_hover = {
-	            bg_color = nord.nord3,
-	            fg_color = nord.nord6,
-	        },
+			inactive_tab_hover = {
+				bg_color = nord.nord3,
+				fg_color = nord.nord6,
+			},
 
-	        new_tab = {
-	            bg_color = nord.nord1,
-	            fg_color = nord.nord4,
-	        },
+			new_tab = {
+				bg_color = nord.nord1,
+				fg_color = nord.nord4,
+			},
 
-	        new_tab_hover = {
-	            bg_color = nord.nord3,
-	            fg_color = nord.nord6,
-	        },
-	    },
+			new_tab_hover = {
+				bg_color = nord.nord3,
+				fg_color = nord.nord6,
+			},
+		},
 	}
 }
 function Keys.setup(config)
@@ -200,32 +200,56 @@ function Keys.setup(config)
 				flags = "LAUNCH_MENU_ITEMS|FUZZY|TABS|DOMAINS|WORKSPACES",
 			}),
 		},
+		 {
+    key = 'w',
+    mods = 'ALT|SHIFT',
+    action = wezterm.action.PromptInputLine {
+      description = wezterm.format {
+        { Attribute = { Intensity = 'Bold' } },
+        { Foreground = { AnsiColor = 'Fuchsia' } },
+        { Text = 'Enter name for new workspace' },
+      },
+      action = wezterm.action_callback(function(window, pane, line)
+        -- line will be `nil` if they hit escape without entering anything
+        -- An empty string if they just hit enter
+        -- Or the actual line of text they wrote
+        if line then
+          window:perform_action(
+            wezterm.action.SwitchToWorkspace {
+              name = line,
+            },
+            pane
+          )
+        end
+      end),
+    },
+  },
 		{
 			key = "Q",
 			mods = "ALT",
 			action = wezterm.action({ CloseCurrentTab = { confirm = false } }),
 		},
-		{ key = "q", mods = "ALT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
-		{ key = "F11", mods = "", action = wezterm.action.ToggleFullScreen },
-		{ key = "[", mods = "ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
-		{ key = "]", mods = "ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
-		{ key = "{", mods = "SHIFT|ALT", action = wezterm.action.MoveTabRelative(-1) },
-		{ key = "}", mods = "SHIFT|ALT", action = wezterm.action.MoveTabRelative(1) },
-		{ key = "y", mods = "ALT", action = wezterm.action.ActivateCopyMode },
-		{ key = "c", mods = "CTRL|SHIFT", action = wezterm.action({ CopyTo = "Clipboard" }) },
-		{ key = "v", mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
-		{ key = "z", mods = "ALT", action = wezterm.action.TogglePaneZoomState },
-		{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
-		{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
-		{ key = "1", mods = "ALT", action = wezterm.action({ ActivateTab = 0 }) },
-		{ key = "2", mods = "ALT", action = wezterm.action({ ActivateTab = 1 }) },
-		{ key = "3", mods = "ALT", action = wezterm.action({ ActivateTab = 2 }) },
-		{ key = "4", mods = "ALT", action = wezterm.action({ ActivateTab = 3 }) },
-		{ key = "5", mods = "ALT", action = wezterm.action({ ActivateTab = 4 }) },
-		{ key = "6", mods = "ALT", action = wezterm.action({ ActivateTab = 5 }) },
-		{ key = "7", mods = "ALT", action = wezterm.action({ ActivateTab = 6 }) },
-		{ key = "8", mods = "ALT", action = wezterm.action({ ActivateTab = 7 }) },
-		{ key = "9", mods = "ALT", action = wezterm.action({ ActivateTab = 8 }) },
+		{ key = "q",   mods = "ALT",        action = wezterm.action.CloseCurrentPane({ confirm = false }) },
+		{ key = "F11", mods = "",           action = wezterm.action.ToggleFullScreen },
+		{ key = "[",   mods = "ALT",        action = wezterm.action({ ActivateTabRelative = -1 }) },
+		{ key = "]",   mods = "ALT",        action = wezterm.action({ ActivateTabRelative = 1 }) },
+		{ key = "{",   mods = "SHIFT|ALT",  action = wezterm.action.MoveTabRelative(-1) },
+		{ key = "}",   mods = "SHIFT|ALT",  action = wezterm.action.MoveTabRelative(1) },
+		{ key = "y",   mods = "ALT",        action = wezterm.action.ActivateCopyMode },
+		{ key = "c",   mods = "CTRL|SHIFT", action = wezterm.action({ CopyTo = "Clipboard" }) },
+		{ key = "v",   mods = "CTRL|SHIFT", action = wezterm.action({ PasteFrom = "Clipboard" }) },
+		{ key = "z",   mods = "ALT",        action = wezterm.action.TogglePaneZoomState },
+		{ key = "=",   mods = "CTRL",       action = wezterm.action.IncreaseFontSize },
+		{ key = "-",   mods = "CTRL",       action = wezterm.action.DecreaseFontSize },
+		{ key = "1",   mods = "ALT",        action = wezterm.action({ ActivateTab = 0 }) },
+		{ key = "2",   mods = "ALT",        action = wezterm.action({ ActivateTab = 1 }) },
+		{ key = "3",   mods = "ALT",        action = wezterm.action({ ActivateTab = 2 }) },
+		{ key = "4",   mods = "ALT",        action = wezterm.action({ ActivateTab = 3 }) },
+		{ key = "5",   mods = "ALT",        action = wezterm.action({ ActivateTab = 4 }) },
+		{ key = "6",   mods = "ALT",        action = wezterm.action({ ActivateTab = 5 }) },
+		{ key = "7",   mods = "ALT",        action = wezterm.action({ ActivateTab = 6 }) },
+		{ key = "8",   mods = "ALT",        action = wezterm.action({ ActivateTab = 7 }) },
+		{ key = "9",   mods = "ALT",        action = wezterm.action({ ActivateTab = 8 }) },
 	}
 end
 
