@@ -49,6 +49,7 @@ config = {
 	font_size = get_default_font(),
 	color_scheme = "nord",
 	use_fancy_tab_bar = false,
+	tab_max_width=250,
 	inactive_pane_hsb = {
 		saturation = 1,
 		brightness = 1,
@@ -202,7 +203,7 @@ function Keys.setup(config)
 		},
 		 {
     key = 'w',
-    mods = 'ALT|SHIFT',
+    mods = 'LEADER',
     action = wezterm.action.PromptInputLine {
       description = wezterm.format {
         { Attribute = { Intensity = 'Bold' } },
