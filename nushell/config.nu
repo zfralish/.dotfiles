@@ -987,4 +987,4 @@ $env.config = {
     ]
 }
 
-neofetch
+fastfetch
