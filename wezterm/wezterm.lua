@@ -6,12 +6,23 @@ local Keys = {}
 local function get_default_program()
 	if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		-- Windows-specific program (starting WSL)
-		return { "wsl.exe", "--cd", "~" }
+		return {}
 	elseif wezterm.target_triple:find("linux") then
 		-- Linux-specific program
 		return { "/home/linuxbrew/.linuxbrew/bin/nu" }
 	else
 		return { "/opt/homebrew/bin/nu" }
+	end
+end
+local function get_default_domain()
+	if wezterm.target_triple == "x86_64-pc-windows-msvc" then
+		-- Windows-specific program (starting WSL)
+		return 'WSL:Ubuntu'
+	elseif wezterm.target_triple:find("linux") then
+		-- Linux-specific program
+		return  "local" 
+	else
+		return  "local" 
 	end
 end
 local function get_default_font()
@@ -41,6 +52,7 @@ local nord = {
 config = {
 	automatically_reload_config = true,
 	enable_tab_bar = true,
+	default_domain = get_default_domain(),
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
 	force_reverse_video_cursor = true,

@@ -987,4 +987,3 @@ $env.config = {
     ]
 }
 
-fastfetch
