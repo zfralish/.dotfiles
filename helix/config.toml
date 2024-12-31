@@ -13,3 +13,7 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal]
+"C-d" = ["page_cursor_half_down", "align_view_center"]
+"C-u" = ["page_cursor_half_up", "align_view_center"]
