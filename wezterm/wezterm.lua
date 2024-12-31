@@ -6,7 +6,7 @@ local Keys = {}
 local function get_default_program()
 	if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		-- Windows-specific program (starting WSL)
-		return {}
+		return {"pwsh.exe"}
 	elseif wezterm.target_triple:find("linux") then
 		-- Linux-specific program
 		return { "/home/linuxbrew/.linuxbrew/bin/nu" }
@@ -28,7 +28,7 @@ end
 local function get_default_font()
 	if wezterm.target_triple == "x86_64-pc-windows-msvc" then
 		-- Windows-specific program (starting WSL)
-		return 11.0
+		return 10.5
 	elseif wezterm.target_triple:find("linux") then
 		return 10.0
 	else
@@ -60,6 +60,8 @@ config = {
 	default_prog = get_default_program(),
 	font_size = get_default_font(),
 	color_scheme = "nord",
+	front_end="WebGpu",
+	max_fps = 144,
 	use_fancy_tab_bar = false,
 	tab_max_width=250,
 	inactive_pane_hsb = {
