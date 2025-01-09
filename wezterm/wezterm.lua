@@ -49,6 +49,19 @@ local nord = {
 	nord10 = '#5E81AC',   -- Dark blue
 }
 
+local everforest = {
+    everforest0 = '#2B3339',  -- Dark gray (background)
+    everforest1 = '#323C41',  -- Darker gray
+    everforest2 = '#3A454A',  -- Medium gray
+    everforest3 = '#445055',  -- Gray
+    everforest4 = '#D3C6AA',  -- Light warm gray
+    everforest5 = '#E9E8D2',  -- Lighter warm gray
+    everforest6 = '#FDF6E3',  -- Almost white
+    everforest7 = '#7FBBB3',  -- Sage green
+    everforest8 = '#83C092',  -- Forest green
+    everforest9 = '#A7C080',  -- Light green
+    everforest10 = '#859289', -- Muted green
+}
 config = {
 	automatically_reload_config = true,
 	enable_tab_bar = true,
@@ -59,7 +72,7 @@ config = {
 	font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
 	default_prog = get_default_program(),
 	font_size = get_default_font(),
-	color_scheme = "nord",
+	color_scheme = "Everforest Dark (Gogh)",
 	front_end="WebGpu",
 	max_fps = 144,
 	use_fancy_tab_bar = false,
@@ -70,32 +83,32 @@ config = {
 	},
 	colors = {
 		tab_bar = {
-			background = nord.nord0,
+			background = everforest.everforest0,
 
 			active_tab = {
-				bg_color = nord.nord8,
-				fg_color = nord.nord0,
+				bg_color = everforest.everforest8,
+				fg_color = everforest.everforest0,
 				intensity = 'Normal',
 			},
 
 			inactive_tab = {
-				bg_color = nord.nord2,
-				fg_color = nord.nord4,
+				bg_color = everforest.everforest2,
+				fg_color = everforest.everforest4,
 			},
 
 			inactive_tab_hover = {
-				bg_color = nord.nord3,
-				fg_color = nord.nord6,
+				bg_color = everforest.everforest3,
+				fg_color = everforest.everforest6,
 			},
 
 			new_tab = {
-				bg_color = nord.nord1,
-				fg_color = nord.nord4,
+				bg_color = everforest.everforest1,
+				fg_color = everforest.everforest4,
 			},
 
 			new_tab_hover = {
-				bg_color = nord.nord3,
-				fg_color = nord.nord6,
+				bg_color = everforest.everforest3,
+				fg_color = everforest.everforest6,
 			},
 		},
 	}
