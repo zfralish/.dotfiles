@@ -36,6 +36,12 @@ args = ["--stdio"]
 command="emmet-ls"
 
 [[language]]
+name = "svelte"
+auto-format = true
+language-servers = [ { name = "tailwindcss-ls", except-features = ["hover"] }, "svelteserver", "emmet-ls", "eslint-ls" ]
+formatter = { command = "prettier", args = ["--parser", "html"]}
+
+[[language]]
 name = "html"
 formatter = { command = 'npx', args = ["prettier", "--parser", "html"] }
 language-servers = ["vscode-html-language-server", "emmet-ls", "tailwindcss-ls"]
