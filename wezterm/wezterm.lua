@@ -145,6 +145,11 @@ function Keys.setup(config)
 			action = wezterm.action.ActivateCommandPalette,
 		},
 		{
+			key = "w",
+			mods = "ALT",
+			action = wezterm.action.QuickSelect,
+		},
+		{
 			key = "h",
 			mods = "LEADER",
 			action = wezterm.action.ActivatePaneDirection("Left"),
