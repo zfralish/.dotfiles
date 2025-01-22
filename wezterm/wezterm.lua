@@ -72,7 +72,7 @@ config = {
 	font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
 	default_prog = get_default_program(),
 	font_size = get_default_font(),
-	color_scheme = "Everforest Dark (Gogh)",
+	color_scheme = "nord",
 	front_end="WebGpu",
 	max_fps = 144,
 	use_fancy_tab_bar = false,
@@ -83,32 +83,32 @@ config = {
 	},
 	colors = {
 		tab_bar = {
-			background = everforest.everforest0,
+			background = nord.nord0,
 
 			active_tab = {
-				bg_color = everforest.everforest8,
-				fg_color = everforest.everforest0,
+				bg_color = nord.nord8,
+				fg_color = nord.nord0,
 				intensity = 'Normal',
 			},
 
 			inactive_tab = {
-				bg_color = everforest.everforest2,
-				fg_color = everforest.everforest4,
+				bg_color = nord.nord2,
+				fg_color = nord.nord4,
 			},
 
 			inactive_tab_hover = {
-				bg_color = everforest.everforest3,
-				fg_color = everforest.everforest6,
+				bg_color = nord.nord3,
+				fg_color = nord.nord6,
 			},
 
 			new_tab = {
-				bg_color = everforest.everforest1,
-				fg_color = everforest.everforest4,
+				bg_color = nord.nord1,
+				fg_color = nord.nord4,
 			},
 
 			new_tab_hover = {
-				bg_color = everforest.everforest3,
-				fg_color = everforest.everforest6,
+				bg_color = nord.nord3,
+				fg_color = nord.nord6,
 			},
 		},
 	}

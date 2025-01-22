@@ -1,5 +1,5 @@
 
-theme = "everforest_dark"
+theme = "nord"
 
 [editor]
 true-color = true
