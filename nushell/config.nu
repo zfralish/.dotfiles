@@ -9,6 +9,7 @@
 
 use ~/.cache/starship/init.nu
 use ~/.dotfiles/nushell/scripts/conda.nu
+use ~/.dotfiles/nushell/secrets.nu 
 $env.CONDA_NO_PROMPT = true
 # Set the default editor to Helix
 $env.EDITOR = 'hx'
