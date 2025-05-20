@@ -1,0 +1,7 @@
+matches:
+  - trigger: ":a"
+    replace: "<a href='{{clipb}}' />$|$</a>"
+    vars:
+      - name: "clipb"
+        type: "clipboard"
+ 
