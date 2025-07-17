@@ -8,7 +8,9 @@
 # https://github.com/nushell/nu_scripts/tree/main/themes
 
 use ~/.cache/starship/init.nu
-use ~/.dotfiles/nushell/scripts/conda.nu
+if ($nu.os-info.name == "macos") {
+    use ~/.dotfiles/nushell/scripts/conda.nu
+}
 use ~/.dotfiles/nushell/secrets.nu 
 $env.CONDA_NO_PROMPT = true
 # Set the default editor to Helix
@@ -28,6 +30,8 @@ $env.PATH = ($env.PATH | split row (char esep) | append [
     "/opt/homebrew/bin",
     "/Users/zfralish/.local/bin",
     "/Users/zfralish/.pixi/bin"
+    "/home/zfralish/.local/bin",
+   "/Users/zfralish/.local/bin" 
 ] | uniq)
 
 alias dev = cd A:\
