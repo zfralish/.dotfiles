@@ -26,7 +26,8 @@ $env.PATH = ($env.PATH | split row (char esep) | append [
     "/usr/local/go/bin",
     "/home/linuxbrew/.linuxbrew/bin",
     "/opt/homebrew/bin",
-   "/Users/zfralish/.local/bin" 
+    "/Users/zfralish/.local/bin",
+    "/Users/zfralish/.pixi/bin"
 ] | uniq)
 
 alias dev = cd A:\
@@ -95,6 +96,60 @@ def gcmb [issue_number: string, branch_name: string] {
     git pull
     git checkout -b $"CASH-($issue_number)/($branch_name)"
     git push --set-upstream origin $"CASH-($issue_number)/($branch_name)"
+}
+
+def get_git_provider_url [filename: string, line_number: int] {
+    # Check if inside a git repository
+    try {
+        git rev-parse --is-inside-work-tree | complete | get exit_code
+    } catch {
+        print "Error: Not inside a git repository."
+        return
+    }
+    
+    if (git rev-parse --is-inside-work-tree | complete | get exit_code) != 0 {
+        print "Error: Not inside a git repository."
+        return
+    }
+    
+    # Get the remote URL
+    let remote_url = try {
+        git config --get remote.origin.url | str trim
+    } catch {
+        print "Error: No remote origin found."
+        return
+    }
+    
+    if ($remote_url | is-empty) {
+        print "Error: No remote origin found."
+        return
+    }
+    
+    # Determine the provider (GitHub, GitLab, etc.)
+    let provider = if ($remote_url | str contains "github.com") {
+        "github"
+    } else if ($remote_url | str contains "gitlab.com") {
+        "gitlab"
+    } else {
+        print "Error: Unsupported git provider."
+        return
+    }
+    
+    # Extract the repo path
+    let repo_path = ($remote_url | parse -r '\.com[:/](.*)\.git' | get capture0.0)
+    
+    # Get the current branch
+    let branch = (git rev-parse --abbrev-ref HEAD | str trim)
+    
+    # Generate the URL based on the provider
+    match $provider {
+        "github" => $"https://github.com/($repo_path)/blob/($branch)/($filename)#L($line_number)",
+        "gitlab" => $"https://gitlab.com/($repo_path)/-/blob/($branch)/($filename)#L($line_number)",
+        _ => {
+            print "Error: Unsupported git provider."
+            return
+        }
+    }
 }
 
 let dark_theme = {

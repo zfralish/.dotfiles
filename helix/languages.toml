@@ -89,3 +89,5 @@ name = "markdown"
 formatter = { command = 'npx', args = ["prettier", "--parser", "markdown"] }
 soft-wrap.enable = true
 soft-wrap.wrap-at-text-width = true
+
+

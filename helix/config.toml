@@ -6,6 +6,7 @@ true-color = true
 line-number = "relative"
 mouse = false
 end-of-line-diagnostics = "hint"
+shell = ["nu", "--env-config", "~/.dotfiles/nushell/env.nu", "--config", "~/.dotfiles/nushell/config.nu", "-c"]
 
 
 [editor.inline-diagnostics]
@@ -24,5 +25,18 @@ select = "underline"
 hidden = false
 
 [keys.normal]
-"C-d" = ["page_cursor_half_down", "align_view_center"]
-"C-u" = ["page_cursor_half_up", "align_view_center"]
+C-d = ["page_cursor_half_down", "align_view_center"]
+C-u = ["page_cursor_half_up", "align_view_center"]
+C-y = [
+  ':sh rm -f /tmp/unique-file',
+  ':insert-output yazi %{buffer_name} --chooser-file=/tmp/unique-file',
+  ':insert-output echo "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+  ':open %sh{cat /tmp/unique-file}',
+  ':redraw',
+]
+
+[keys.normal.space.space]
+# Show blame info for current line
+b = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}"
+# Copy git provider url for this file and line
+o = ":sh get_git_provider_url /Users/zfralish/.dotfiles/nushell/config.nu 1 | pbcopy"
