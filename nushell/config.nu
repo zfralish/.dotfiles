@@ -26,6 +26,7 @@ $env.GIT_EDITOR = 'hx'
 
 $env.PATH = ($env.PATH | split row (char esep) | append [
     "/usr/local/go/bin",
+    "/Users/zfralish/go/bin",
     "/home/linuxbrew/.linuxbrew/bin",
     "/opt/homebrew/bin",
     "/Users/zfralish/.local/bin",
